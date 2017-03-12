@@ -12,14 +12,14 @@ import axios from 'axios'
 // import authStore from './authStore'
 
 let api = axios.create({
-  baseURL: 'http://localhost:3000/api/',
+  baseURL: 'https://shuffle-app-1.herokuapp.com/api/',
   timeout: 2000,
   withCredentials: true
 })
 
 
 
-let socket = io('http://localhost:3000')
+let socket = io('https://shuffle-app-1.herokuapp.com/')
 
 socket.on('CONNECTED', function (data) {
   console.log(data)

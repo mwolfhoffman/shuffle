@@ -4,7 +4,7 @@ import mainStore from './index'
 import router from '../router'
 
 let api = axios.create({
-    baseURL: 'http://localhost:3000/api/',
+    baseURL: 'https://shuffle-app-1.herokuapp.com/api/',
     timeout: 2000,
     withCredentials: true
 })
@@ -45,7 +45,7 @@ export default {
     actions: {
         createNewAccount({commit}, newUser) {
             debugger
-            axios.post('http://localhost:3000/register', newUser).then(res => {
+            axios.post('https://shuffle-app-1.herokuapp.com/register', newUser).then(res => {
                 if(res.data.error){
                     debugger 
                     console.log("ERROR  ", res.data.error)
@@ -63,7 +63,7 @@ export default {
             }).catch(err => console.log(err))
         },
         login({commit}, payload) {
-            api.post('http://localhost:3000/login', {
+            api.post('https://shuffle-app-1.herokuapp.com/login', {
                 email: payload.email,
                 password: payload.password
             }
@@ -77,13 +77,13 @@ export default {
             }).catch(err => console.log('ERROR: '+  error) )
         },
         logout({commit}) {
-            axios.delete('http://localhost:3000/logout').then(res => {
+            axios.delete('https://shuffle-app-1.herokuapp.com/logout').then(res => {
                 console.log('calling mutation to end session ', res.data)
                 commit('logoutUser')
             })
         },
         authenticate({commit}, payload) {
-            api.get('http://localhost:3000/authenticate')
+            api.get('https://shuffle-app-1.herokuapp.com/authenticate')
                 .then(res => {
                     console.log('User Authentication ',  res.data.data)
                 }).catch(err=>console.log(err))

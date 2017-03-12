@@ -3,7 +3,7 @@ import authStore from './auth-store'
 import teamStore from './team-store'
 
 let api = axios.create({
-    baseURL: 'http://localhost:3000/api/',
+    baseURL: 'https://shuffle-app-1.herokuapp.com/api/',
     timeout: 200000,
     withCredentials: true
 })

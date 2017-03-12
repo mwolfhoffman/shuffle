@@ -4,7 +4,7 @@ import mainStore from './index'
 import router from '../router'
 
 let api = axios.create({
-    baseURL: 'http://localhost:3000/api/',
+    baseURL: 'https://shuffle-app-1.herokuapp.com/api/',
     timeout: 2000,
     withCredentials: true
 })
