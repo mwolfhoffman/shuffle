@@ -18,6 +18,7 @@ export default {
     getters: {},
     mutations: {
         setTeam(state, payload) {
+            console.log('new team should go to main sthore', mainStore)
             state.currentTeam = payload.data
             console.log('you just set a new team!', state.currentTeam)
         },
@@ -32,19 +33,22 @@ export default {
         }
     },
     actions: {
-        createTeam({commit}, payload) {
+        createTeam({ commit }, payload) {
             api.post('teams', payload).then(res => {
+                debugger 
                 console.log('create team... ... ', res.data)
-                    console.log(mainStore.actions.getTheTeams)
-                // commit('setNewTeam', res.data.data)
+                Materialize.toast("Team Was Successfully Created", 4000)
+                debugger 
+                console.log('should have toasted')
+                router.push('/dashboard')
             }).catch(err => console.log(err))
         },
-        getThisTeam({commit}, id) {
+        getThisTeam({ commit }, id) {
             api.get('teams/' + id).then(res => {
                 commit('setTeam', res.data)
             }).catch(console.log)
         },
-        removeTeamMember({commit}, payload) {
+        removeTeamMember({ commit }, payload) {
             api.put('teams/' + payload.teamId, { members: payload.members }).then(res => {
                 console.log('is this the team?   ', res.data)
                 // commit('updateTeam', payload.members)
@@ -52,7 +56,7 @@ export default {
 
             })
         },
-        removeTeam({commit}, payload) {
+        removeTeam({ commit }, payload) {
             console.log('hitting the actions    ', payload)
             api.delete('teams/' + payload.teamId).then(res => {
                 commit('setDeletedTeamState', res)
