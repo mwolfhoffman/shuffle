@@ -23,25 +23,13 @@ export default {
     mutations: {
         forcedMutationLogin(state, payload) {
             state.user = payload
-            console.log('new user in auth store == state.user ', state.user)
         },
-        // createNewUser(state, newUser) {
-        //     // state.user = newUser
-        //     mainStore.state.user = newUser
-        //     // state.user = newUser;
-
-        //     Materialize.toast('Your Account Was Created! Welcome To Shuffle', 2000)
-        //     router.push('/dashboard')
-        // },
         setUser(state, payload) {
             state.user = payload.data
-            console.log('user has been set! you are logged in  ', state.user)
-            console.log("This is the THIS  ", router)
             router.push('/dashboard')
         },
         logoutUser(state) {
             state.user = {}
-            console.log('user is logged out', state.user)
         }
     },
     actions: {
@@ -63,13 +51,11 @@ export default {
                 .catch(err => console.log(err))
         },
         login({ commit }, payload) {
-            console.log('payload ', payload)
             api.post('https://shuffle-app-1.herokuapp.com/login', {
                 email: payload.email,
                 password: payload.password
             }
             ).then(res => {
-                console.log('almost logged in! calling mutation', res.data)
                 if (res.data.error) {
                     Materialize.toast(res.data.error, 4000)
                     return
@@ -79,14 +65,12 @@ export default {
         },
         logout({ commit }) {
             axios.delete('https://shuffle-app-1.herokuapp.com/logout').then(res => {
-                console.log('calling mutation to end session ', res.data)
                 commit('logoutUser')
             })
         },
         authenticate({ commit }, payload) {
             api.get('https://shuffle-app-1.herokuapp.com/authenticate')
                 .then(res => {
-                    console.log('User Authentication ', res.data.data)
                 }).catch(err => console.log(err))
         },
 
