@@ -67,7 +67,7 @@ export default {
                 } else {
                     // console.log('creating new user', res.data),
                         // commit('createNewUser', res.data.data)
-                        router.push('/shuffle')
+                        router.push('/')
                         Materialize.toast("You have a new account, please log in ", 5000)
                 }
             }).catch(err => console.log(err))
