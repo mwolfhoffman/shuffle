@@ -32,10 +32,10 @@ export default {
             console.log("YESSSSSSSSSSSSSSSSSSSS")
             state.user = newUser
             mainStore.state.user = newUser
-            state.user=newUser;
+            state.user = newUser;
             console.log('New User Has Been Created!', state.user)
             console.log('New User Has Been Created in the main store!', mainStore.state.user)
-            
+
 
             Materialize.toast('Your Account Was Created! Welcome To Shuffle', 2000)
             router.push('/dashboard')
@@ -52,27 +52,34 @@ export default {
         }
     },
     actions: {
-        createNewAccount({ commit }, newUser) {
-            debugger
+        createNewAccount({ commit, dispatch }, newUser) {
             axios.post('https://shuffle-app-1.herokuapp.com/register', newUser).then(res => {
                 if (res.data.error) {
-                    debugger
                     console.log("ERROR  ", res.data.error)
-
                     if (res.data.error.code = 11000) {
                         Materialize.toast('This email address is already associated with an account.', 5000)
                         return
                     }
-                    return
-                } else {
-                    // console.log('creating new user', res.data),
-                        // commit('createNewUser', res.data.data)
-                        router.push('/')
-                        Materialize.toast("You have a new account, please log in ", 5000)
+                }else{
+                    return new Promise((res,rej)=>{
+                        res()
+                        // rej('shit it didnt work')
+                    })
                 }
-            }).catch(err => console.log(err))
+                return
+            })
+                // .then(() => {
+                //     let newUserPayload = {
+                //         email: newUser.email,
+                //         password: newUser.password
+                //     }
+                //     console.log('newUserPayload ', newUserPayload)
+                //     mainStore.modules.authStore.actions.login(newUserPayload)
+                // })
+                .catch(err => console.log(err))
         },
         login({ commit }, payload) {
+            console.log('payload ', payload)
             api.post('https://shuffle-app-1.herokuapp.com/login', {
                 email: payload.email,
                 password: payload.password

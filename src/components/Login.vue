@@ -68,11 +68,18 @@ export default {
          password: this.newPassword
             }
    console.log('new user ', newUser)
-       this.createNewAccount(newUser)
+
        this.firstName='',
        this.lastName='',
        this.newEmail='',
       this.newPassword=''
+       this.createNewAccount(newUser).then(res=>{
+          this.login({
+              email: newUser.email,
+              password: newUser.password
+          })
+        //   .catch(err=>{console.log(err)})
+       })
             },
        
         logout(){
