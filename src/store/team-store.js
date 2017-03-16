@@ -35,10 +35,9 @@ export default {
     actions: {
         createTeam({ commit }, payload) {
             api.post('teams', payload).then(res => {
-                debugger 
                 console.log('create team... ... ', res.data)
                 Materialize.toast("Team Was Successfully Created", 4000)
-                debugger 
+               
                 console.log('should have toasted')
                 router.push('/dashboard')
             }).catch(err => console.log(err))

@@ -59,7 +59,6 @@ export default {
    },
    mounted(){
        this.getUserTeams(this.currentUser)
-
        console.log(this.verifyUser())
    }
 

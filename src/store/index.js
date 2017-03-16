@@ -24,15 +24,21 @@ export default {
   },
   mutations: {
     setMyTeams(state, payload){
+      // debugger 
+      console.log('about to get teams ==> ', payload)
       state.myTeams=payload
       console.log('teams were set in store ...   ', state.myTeams)
     }
   },
   actions: {
     getTheTeams({commit}){
+      // debugger
       api.get('teams').then(res=>{
+        console.log('res from getTheTeams in the main store   =>', res)
+        console.log("AUTH STOER  ",authStore)
           let newPayload = res.data.data.filter((team,i)=>{
           return team.creatorId === authStore.state.user._id })
+          // debugger 
         commit('setMyTeams', newPayload)
       }).catch(err=>console.log(err))
     }
