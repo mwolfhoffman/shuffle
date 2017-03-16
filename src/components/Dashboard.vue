@@ -52,9 +52,7 @@ export default {
     },
     watch:{
         currentUser(){
-        console.log('current user ===>',   this.currentUser)
         this.getUserTeams(this.currentUser)
-        console.log(this.teamArr)
       },
    },
    mounted(){

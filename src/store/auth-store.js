@@ -23,23 +23,16 @@ export default {
     mutations: {
         forcedMutationLogin(state, payload) {
             state.user = payload
-            // mainStore.state.user = payload
             console.log('new user in auth store == state.user ', state.user)
-            // console.log('new user in main store == state.user ', mainStore.state.user)
-
         },
-        createNewUser(state, newUser) {
-            console.log("YESSSSSSSSSSSSSSSSSSSS")
-            state.user = newUser
-            mainStore.state.user = newUser
-            state.user = newUser;
-            console.log('New User Has Been Created!', state.user)
-            console.log('New User Has Been Created in the main store!', mainStore.state.user)
+        // createNewUser(state, newUser) {
+        //     // state.user = newUser
+        //     mainStore.state.user = newUser
+        //     // state.user = newUser;
 
-
-            Materialize.toast('Your Account Was Created! Welcome To Shuffle', 2000)
-            router.push('/dashboard')
-        },
+        //     Materialize.toast('Your Account Was Created! Welcome To Shuffle', 2000)
+        //     router.push('/dashboard')
+        // },
         setUser(state, payload) {
             state.user = payload.data
             console.log('user has been set! you are logged in  ', state.user)
@@ -63,19 +56,10 @@ export default {
                 }else{
                     return new Promise((res,rej)=>{
                         res()
-                        // rej('shit it didnt work')
                     })
                 }
                 return
             })
-                // .then(() => {
-                //     let newUserPayload = {
-                //         email: newUser.email,
-                //         password: newUser.password
-                //     }
-                //     console.log('newUserPayload ', newUserPayload)
-                //     mainStore.modules.authStore.actions.login(newUserPayload)
-                // })
                 .catch(err => console.log(err))
         },
         login({ commit }, payload) {

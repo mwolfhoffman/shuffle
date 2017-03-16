@@ -71,7 +71,6 @@
                         this.activeMembers.push(m)
                     }
                 })
-                console.log('active members array ', this.activeMembers)
                 let shuffled = _.shuffle(this.activeMembers)
                 this.results = _.chunk(shuffled, this.num)
                 if (this.results[this.results.length - 2].length != this.results[this.results.length - 1].length) {
@@ -79,12 +78,10 @@
                         this.results[index].push(member)
                     })
                     this.results.splice(this.results.length - 1, 1)
-                    console.log(this.results)
                 }
                 this.num = ''
             },
             removeFromTeam() {
-                console.log('its going to delete ', this.currentTeam._id, 'the type of the id is ', typeof this.currentTeam._id)
                 this.removeTeam({ teamId: this.currentTeam._id })
             }
         },
@@ -101,8 +98,6 @@
         },
         mounted() {
             this.getTeam()
-            console.log('The members   ', this.team.members)
-            console.log('The ACTIVE members   ', this.team.members)
         }
     }
 

@@ -30,7 +30,6 @@
                     this.$parent.members.filter(member => {
                         return member.memberId != this.member.memberId
                     })
-                console.log('Updated team?    =>  ', updatedMembers)
 
                 this.removeTeamMember({
                     teamId: this.$route.params.id,
@@ -40,7 +39,6 @@
                 this.isDeleted = !this.isDeleted
                 //This will mark them inactive
                     this.member.active=false
-                        console.log(this.member.active)
                         this.menu=!this.menu
 
             },
@@ -51,7 +49,6 @@
                         member.active = this.isActive;
                     }
                 })
-                console.log(this.$parent.members)
                 this.menu=!this.menu
             }
         }

@@ -51,7 +51,6 @@ export default {
   ...mapActions('authStore', ['createNewAccount', 'login', 'logout', 'authenticate']),
 
    loginUser(){
-      console.log('at least the method is working')
       this.login({
           email: this.email,
           password: this.password
@@ -61,13 +60,11 @@ export default {
         },
    
    createUser(){
-        console.log('creating user')
          let newUser = {
          name: this.firstName +' '+  this.lastName,
          email: this.newEmail,
          password: this.newPassword
             }
-   console.log('new user ', newUser)
 
        this.firstName='',
        this.lastName='',
@@ -78,7 +75,7 @@ export default {
               email: newUser.email,
               password: newUser.password
           })
-        //   .catch(err=>{console.log(err)})
+          .catch(err=>{console.log(err)})
        })
             },
        
