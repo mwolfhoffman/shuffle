@@ -1,0 +1,342 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat);@import url(https://fonts.googleapis.com/css?family=Roboto);@import url(https://fonts.googleapis.com/css?family=Roboto);
+.card-container{
+    display: -ms-flexbox;
+    display: flex;
+     -ms-flex-direction: row;
+         flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+      -ms-flex-pack:distribute;
+          justify-content:space-around;
+}
+.cards{
+    width: 25%;
+    height: 200px;
+    margin: 1%;
+}
+.well{
+    width:25%;
+    margin: 2%;
+}
+
+
+.createForm{
+    display: block;
+    /*boarder: 10px solid red;*/
+}
+
+/*custom font*/
+
+/*basic reset*/
+* {margin: 0; padding: 0;
+}
+body {
+	font-family: montserrat, arial, verdana;
+}
+/*form styles*/
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #27AE60;
+	color: white;
+}
+button{
+	background: darkslategray;
+}
+
+
+
+
+.card-container.card[data-v-0e596401] {
+    max-width: 350px;
+    padding: 40px 40px;
+}
+.btn[data-v-0e596401] {
+    font-weight: 700;
+    height: 36px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+        user-select: none;
+    cursor: default;
+}
+
+/*
+ * Card component
+ */
+.card[data-v-0e596401] {
+    background-color: #F7F7F7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
+    /* shadows and rounded borders */
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.profile-img-card[data-v-0e596401] {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card[data-v-0e596401] {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+.reauth-email[data-v-0e596401] {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+.form-signin #inputEmail[data-v-0e596401],
+.form-signin #inputPassword[data-v-0e596401] {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+.form-signin input[type=email][data-v-0e596401],
+.form-signin input[type=password][data-v-0e596401],
+.form-signin input[type=text][data-v-0e596401],
+.form-signin button[data-v-0e596401] {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    box-sizing: border-box;
+}
+.form-signin .form-control[data-v-0e596401]:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+.btn.btn-signin[data-v-0e596401] {
+    /*background-color: #4d90fe; */
+    background-color: rgb(104, 145, 162);
+    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    border-radius: 3px;
+    border: none;
+    transition: all 0.218s;
+}
+.btn.btn-signin[data-v-0e596401]:hover,
+.btn.btn-signin[data-v-0e596401]:active,
+.btn.btn-signin[data-v-0e596401]:focus {
+    background-color: rgb(12, 97, 33);
+}
+.create-account[data-v-0e596401] {
+    color: rgb(104, 145, 162);
+}
+.create-account[data-v-0e596401]:hover,
+.create-account[data-v-0e596401]:active,
+.create-account[data-v-0e596401]:focus{
+    color: rgb(12, 97, 33);
+}
+
+
+.input-class {
+    border: 2px solid black;
+}
+/*.results-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+}*/
+.group-container {
+    /*padding: 50%;*/
+    /*margin: 0.1%;*/
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    /*width: 100%;*/
+    height: 10%;
+    border: 3px solid black;
+    border-radius: 20px;
+    -ms-flex-line-pack: center;
+        align-content: center;
+}
+.group {
+width: 100%;
+display: block;
+}
+.team-title {
+    display: inline;
+    vertical-align: middle;
+    text-align: center;
+}
+.member-class{
+
+box-shadow: 10px 10px 5px #888888;
+}
+
+.inactive {
+        font-family: 'Roboto', sans-serif;
+        text-decoration: line-through;
+        color: red;
+}
+.active {
+        font-family: 'Roboto', sans-serif;
+        color: darkslateblue;
+}
+.removed {
+        font-family: 'Roboto', sans-serif;
+        text-decoration: line-through;
+        color: black;
+}
+
+#app {
+    /*font-family: 'Avenir', Helvetica, Arial, sans-serif;*/
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+       font-family: 'Roboto', sans-serif;
+}
+.flex-container {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+}
+nav{
+    background: #607d8b;
+}
+
+/*# sourceMappingURL=app.873309cd3d8fb63f67fb3a525650a438.css.map*/
